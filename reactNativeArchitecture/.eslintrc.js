@@ -6,8 +6,7 @@ module.exports = {
   'extends': [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'plugin:@typescript-eslint/recommended'
   ],
   'overrides': [
   ],
@@ -38,5 +37,6 @@ module.exports = {
       'error',
       'always'
     ]
-  }
+  },
+  ignorePatterns: ['.eslintrc.js','babel.config.js','metro.config.js','crypto-custom.js','jest.config.js']
 };
