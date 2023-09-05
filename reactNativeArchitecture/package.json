@@ -10,6 +10,12 @@
     "test": "jest",
     "postinstall": "cd .. && husky install reactNativeArchitecture/.husky"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
@@ -40,11 +46,5 @@
   },
   "engines": {
     "node": ">=16"
-  },
-  "lint-staged": {
-    "*.{js, jsx, ts, tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
   }
 }
