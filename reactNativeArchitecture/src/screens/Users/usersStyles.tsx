@@ -1,3 +1,4 @@
+import theme from '@theme';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -10,28 +11,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   item: {
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.white,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: theme.colors.GREY,
     padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   name: {
-    fontSize: 18,
+    fontSize: theme.fontSizes.lg,
     fontWeight: 'bold',
   },
   editButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: theme.colors.primary,
     padding: 8,
     borderRadius: 5,
     marginLeft: 10,
   },
   editButtonText: {
-    color: '#fff', // Text color for the button
-    fontSize: 16, // Font size for the button text
-    fontWeight: 'bold', // Font weight for the button text
+    color: theme.colors.white,
+    fontSize: theme.fontSizes.md,
+    fontWeight: 'bold',
   },
 });
 

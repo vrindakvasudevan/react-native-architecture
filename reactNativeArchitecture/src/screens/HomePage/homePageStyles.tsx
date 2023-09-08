@@ -1,3 +1,4 @@
+import theme from '@theme';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -7,18 +8,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: theme.fontSizes['2xl'],
     fontWeight: 'bold',
     marginBottom: 20,
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: theme.colors.primary,
     padding: 16,
     borderRadius: 8,
   },
   buttonText: {
-    color: 'white',
-    fontSize: 18,
+    color: theme.colors.white,
+    fontSize: theme.fontSizes.lg,
     fontWeight: 'bold',
   },
 });
