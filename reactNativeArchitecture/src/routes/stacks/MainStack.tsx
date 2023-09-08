@@ -2,7 +2,7 @@ import Homepage from '../../screens/HomePage/index';
 import { FC } from 'react';
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Users from '@screens/users';
+import Users from '@screens/Users';
 import { routeOverlayOption } from '@routes/routeOptions';
 
 const MainStack = createStackNavigator();
