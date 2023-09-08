@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { useUsers } from '@api/hooks/users';
-import styles from './usersStyles';
+import styles from './styles';
+import AddEditUser from './AddEditUser';
+import { User } from './types';
 
 const Users = () => {
-  type User = {
-    id: string;
-    name: string;
+  const { isLoading, data: usersData } = useUsers();
+  const [isAddEditUser, setIsAddEditUser] = useState(false);
+  const [userId, setUserId] = useState('');
+
+  /**
+   * Method to display add-edit user
+   * @param userId id of selected user
+   */
+  const displayAddEditUser = (userId: string) => {
+    setIsAddEditUser(true);
+    setUserId(userId);
   };
-  const { isLoading, data } = useUsers();
-  const usersData = data as User[];
 
   if (isLoading) {
     return <ActivityIndicator style={styles.loader} size="large" />;
@@ -18,7 +26,7 @@ const Users = () => {
   const renderItem = ({ item }: { item: User }) => (
     <View style={styles.item}>
       <Text style={styles.name}>{item.name}</Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => displayAddEditUser(item.id)}>
         <View style={styles.editButton}>
           <Text style={styles.editButtonText}>Edit</Text>
         </View>
@@ -28,7 +36,15 @@ const Users = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList data={usersData} renderItem={renderItem} keyExtractor={(item) => item.id} />
+      {!isAddEditUser ? (
+        <FlatList
+          data={usersData as User[]}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      ) : (
+        <AddEditUser userId={userId} sendDataToParent={() => setIsAddEditUser(false)} />
+      )}
     </View>
   );
 };

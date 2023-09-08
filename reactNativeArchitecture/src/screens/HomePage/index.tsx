@@ -1,7 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import styles from './homePageStyles';
+import styles from './styles';
 
 type RootStackParamList = {
   Home: undefined;
